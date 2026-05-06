@@ -1,1 +1,0 @@
-# shiva-42school
