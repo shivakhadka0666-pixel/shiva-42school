@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shkhadka <shkhadka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/20 13:50:07 by shkhadka          #+#    #+#             */
-/*   Updated: 2026/05/21 17:58:41 by shkhadka         ###   ########.fr       */
+/*   Created: 2026/05/05 19:19:01 by shkhadka          #+#    #+#             */
+/*   Updated: 2026/05/19 18:09:13 by shkhadka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+size_t	ft_strlen(char *str)
 {
-	int	a;
+	size_t	a;
 
-	if (!s || !f)
-		return ;
 	a = 0;
-	while (s[a])
+	while (str[a] != '\0')
 	{
-		f(a, &s[a]);
 		a++;
 	}
+	return (a);
 }
-
-// void ft_toupper(unsigned int n, char *c)
-// {
-//     (void)n;
-//     if (*c >= 'a' && *c <= 'z')
-//         *c -= 32;
-// }
-// int main()
-// {
-//     char s[] = "shiva";
-//     ft_striteri(s, ft_toupper);
-//     printf("%s", s);
-// }
+/*#include <stdio.h>
+int	main(void)
+{
+	char s[] = "sjdujwrkop";
+	printf("%zu", ft_strlen(s));
+}*/

@@ -1,38 +1,47 @@
-// #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <stddef.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: shkhadka <shkhadka@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/08 19:08:37 by shkhadka          #+#    #+#             */
+/*   Updated: 2026/05/21 18:31:21 by shkhadka         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+#include "libft.h"
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    if (!s || len == 0)
-        return NULL;
-    char *result = (char *)malloc(len + 1);
+	char	*src;
+	char	*dst;
+	size_t	a;
 
-    if (!result)
-        return NULL;
-
-    char *src = (char *)s;
-
-    size_t i = 0;
-    while (i < len)
-    {
-        result[i] = src[start + i];
-        i++;
-    }
-    result[i] = '\0';
-    return (result);
+	if (!s || len == 0)
+		return (NULL);
+	a = 0;
+	src = (char *)s;
+	dst = malloc(len + 1);
+	if (!dst)
+		return (NULL);
+	while (a < len)
+	{
+		dst[a] = src[start + a];
+		a++;
+	}
+	dst[a] = '\0';
+	return (dst);
 }
-// #include <stdio.h>
-
-int main()
+/*
+int	main(void)
 {
-    char s[] = "shivakhadka 42";
-    // char p[] = "shivakhadka 42";
+	char	s[];
+	char	*result;
 
-    // char *nresult = substr(p, 6, 6);
-    printf("%s\n", ft_substr(s, 5, 0));
-    // printf("%s", nresult);
-    return (0);
+	result = ft_substr(s, 5, 5);
+	printf("%s", result);
+	free(result);
+	return (0);
 }
+	*/

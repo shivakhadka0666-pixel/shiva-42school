@@ -1,40 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shkhadka <shkhadka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/20 13:50:07 by shkhadka          #+#    #+#             */
-/*   Updated: 2026/05/21 17:58:41 by shkhadka         ###   ########.fr       */
+/*   Created: 2026/05/19 11:57:55 by shkhadka          #+#    #+#             */
+/*   Updated: 2026/05/21 18:27:24 by shkhadka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	a;
+	char	*temp;
+	int		a;
+	int		len;
 
 	if (!s || !f)
-		return ;
+		return (NULL);
+	len = 0;
+	while (s[len])
+		len++;
+	temp = (char *)malloc(len + 1);
+	if (!temp)
+		return (NULL);
 	a = 0;
 	while (s[a])
 	{
-		f(a, &s[a]);
+		temp[a] = f(a, s[a]);
 		a++;
 	}
+	temp[a] = '\0';
+	return (temp);
 }
 
-// void ft_toupper(unsigned int n, char *c)
+// char ft_upper(unsigned int n, char c)
 // {
-//     (void)n;
-//     if (*c >= 'a' && *c <= 'z')
-//         *c -= 32;
+// 	(void)n;
+//     if (c >= 'a' && c <= 'z')
+//         return (c - 32);
+//     return (c);
 // }
+
 // int main()
 // {
-//     char s[] = "shiva";
-//     ft_striteri(s, ft_toupper);
-//     printf("%s", s);
+// 	char const *s = "137";
+// 	char *result;
+// 	result = ft_strmapi(s, ft_upper);
+// 	printf("%s", result);
 // }

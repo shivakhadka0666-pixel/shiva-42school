@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shkhadka <shkhadka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/20 13:50:07 by shkhadka          #+#    #+#             */
-/*   Updated: 2026/05/21 17:58:41 by shkhadka         ###   ########.fr       */
+/*   Created: 2026/05/21 14:16:04 by shkhadka          #+#    #+#             */
+/*   Updated: 2026/05/26 15:06:51 by shkhadka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	int	a;
-
-	if (!s || !f)
+	if (!lst || !f)
 		return ;
-	a = 0;
-	while (s[a])
+	while (lst)
 	{
-		f(a, &s[a]);
-		a++;
+		f(lst->content);
+		lst = lst->next;
 	}
 }
-
-// void ft_toupper(unsigned int n, char *c)
-// {
-//     (void)n;
-//     if (*c >= 'a' && *c <= 'z')
-//         *c -= 32;
-// }
-// int main()
-// {
-//     char s[] = "shiva";
-//     ft_striteri(s, ft_toupper);
-//     printf("%s", s);
-// }

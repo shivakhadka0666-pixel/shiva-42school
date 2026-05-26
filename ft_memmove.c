@@ -1,47 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shkhadka <shkhadka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/07 11:39:38 by shivakhadka       #+#    #+#             */
-/*   Updated: 2026/05/26 15:31:25 by shkhadka         ###   ########.fr       */
+/*   Created: 2026/05/07 14:57:14 by shkhadka          #+#    #+#             */
+/*   Updated: 2026/05/21 17:34:07 by shkhadka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	const unsigned char	*ptrsrc;
-	unsigned char		*ptrdst;
+	unsigned char	*ptrdest;
+	unsigned char	*ptrsrc;
 
-	if (dst == NULL && src == NULL)
-		return (NULL);
-	ptrsrc = (const unsigned char *)src;
-	ptrdst = (unsigned char *)dst;
-	while (n > 0)
+	ptrsrc = (unsigned char *)src;
+	ptrdest = (unsigned char *)dest;
+	if (ptrdest > ptrsrc)
 	{
-		*ptrdst = *ptrsrc;
-		ptrdst++;
-		ptrsrc++;
-		n--;
+		while (n--)
+		{
+			ptrdest[n] = ptrsrc[n];
+		}
 	}
-	return (dst);
+	else
+	{
+		while (n--)
+		{
+			*ptrdest++ = *ptrsrc++;
+		}
+	}
+	return (dest);
 }
 
 // int main()
 // {
-//     char src[] = "";
-//     char dst[] = "";
+//     char src[] = "shivakhadka";
+//     char s1[] = "lemon";
 //     char *result;
-//     char s[] = "";
-//     char d[] = "";
+//     char s[] = "shivakhadka";
+//     char s2[] = "lemon";
 //     char *nresult;
 
-//     result = ft_memcpy(dst, src, 3);
-//     nresult = memcpy(d, s, 3);
+//     result = ft_memmove(src + 2, s1, 0);
+//     nresult = memmove(s +2, s2, 0);
 //     printf("%s\n", result);
 //     printf("%s", nresult);
 //     return (0);

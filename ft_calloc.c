@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shkhadka <shkhadka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/20 13:50:07 by shkhadka          #+#    #+#             */
-/*   Updated: 2026/05/21 17:58:41 by shkhadka         ###   ########.fr       */
+/*   Created: 2026/05/08 13:55:22 by shkhadka          #+#    #+#             */
+/*   Updated: 2026/05/26 15:21:20 by shkhadka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int	a;
+	size_t	totallen;
+	void	*ptr;
 
-	if (!s || !f)
-		return ;
-	a = 0;
-	while (s[a])
-	{
-		f(a, &s[a]);
-		a++;
-	}
+	if (size > 0 && nmemb > ((size_t)-1) / size)
+		return (NULL);
+	totallen = nmemb * size;
+	ptr = malloc(totallen);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, totallen);
+	return (ptr);
 }
-
-// void ft_toupper(unsigned int n, char *c)
-// {
-//     (void)n;
-//     if (*c >= 'a' && *c <= 'z')
-//         *c -= 32;
-// }
-// int main()
-// {
-//     char s[] = "shiva";
-//     ft_striteri(s, ft_toupper);
-//     printf("%s", s);
-// }

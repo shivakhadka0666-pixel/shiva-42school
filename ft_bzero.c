@@ -1,40 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shkhadka <shkhadka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/20 13:50:07 by shkhadka          #+#    #+#             */
-/*   Updated: 2026/05/21 17:58:41 by shkhadka         ###   ########.fr       */
+/*   Created: 2026/05/07 18:13:27 by shkhadka          #+#    #+#             */
+/*   Updated: 2026/05/26 11:26:52 by shkhadka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	ft_bzero(void *s, size_t n)
 {
-	int	a;
-
-	if (!s || !f)
-		return ;
-	a = 0;
-	while (s[a])
-	{
-		f(a, &s[a]);
-		a++;
-	}
+	ft_memset(s, 0, n);
 }
-
-// void ft_toupper(unsigned int n, char *c)
-// {
-//     (void)n;
-//     if (*c >= 'a' && *c <= 'z')
-//         *c -= 32;
-// }
-// int main()
-// {
-//     char s[] = "shiva";
-//     ft_striteri(s, ft_toupper);
-//     printf("%s", s);
-// }

@@ -1,40 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shkhadka <shkhadka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/20 13:50:07 by shkhadka          #+#    #+#             */
-/*   Updated: 2026/05/21 17:58:41 by shkhadka         ###   ########.fr       */
+/*   Created: 2026/05/06 13:01:58 by shkhadka          #+#    #+#             */
+/*   Updated: 2026/05/21 18:30:53 by shkhadka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+char	*ft_strrchr(const char *s, int c)
 {
 	int	a;
 
-	if (!s || !f)
-		return ;
 	a = 0;
 	while (s[a])
-	{
-		f(a, &s[a]);
 		a++;
+	a--;
+	while (s[a])
+	{
+		if (s[a] == (char)c)
+			return ((char *)&s[a]);
+		a--;
 	}
+	if ((char)c == '\0')
+		return (NULL);
+	return (0);
 }
 
-// void ft_toupper(unsigned int n, char *c)
-// {
-//     (void)n;
-//     if (*c >= 'a' && *c <= 'z')
-//         *c -= 32;
-// }
 // int main()
 // {
-//     char s[] = "shiva";
-//     ft_striteri(s, ft_toupper);
-//     printf("%s", s);
+//     char s1[] = "shiva khadka";
+//     char *result;
+//     char s[] = "shiva khadka";
+//     char *nresult;
+
+//     result = ft_strrchr(s1, 'l');
+//     nresult = strrchr(s, 'l');
+
+//     printf("%s\n", result);
+//     printf("%s", nresult);
+//     return (0);
 // }

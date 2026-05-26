@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shkhadka <shkhadka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/20 13:50:07 by shkhadka          #+#    #+#             */
-/*   Updated: 2026/05/21 17:58:41 by shkhadka         ###   ########.fr       */
+/*   Created: 2026/05/06 13:01:32 by shkhadka          #+#    #+#             */
+/*   Updated: 2026/05/21 18:27:44 by shkhadka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+int	ft_strncmp(char *s1, const char *s2, size_t n)
 {
-	int	a;
+	size_t	a;
 
-	if (!s || !f)
-		return ;
 	a = 0;
-	while (s[a])
-	{
-		f(a, &s[a]);
+	if (!n)
+		return (0);
+	while (s1[a] && a < n - 1 && s1[a] == s2[a])
 		a++;
-	}
+	return (s1[a] - s2[a]);
 }
 
-// void ft_toupper(unsigned int n, char *c)
-// {
-//     (void)n;
-//     if (*c >= 'a' && *c <= 'z')
-//         *c -= 32;
-// }
 // int main()
 // {
+//     char s1[] = "shiva";
+//     char s2[] = "";
 //     char s[] = "shiva";
-//     ft_striteri(s, ft_toupper);
-//     printf("%s", s);
+//     char p[] = "";
+//     printf("%d\n", ft_strncmp(s1, s2, 4));
+//     printf("%d", strncmp(s, p, 4));
+//     return (0);
 // }

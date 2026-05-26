@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shkhadka <shkhadka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/20 13:50:07 by shkhadka          #+#    #+#             */
-/*   Updated: 2026/05/21 17:58:41 by shkhadka         ###   ########.fr       */
+/*   Created: 2026/05/07 15:16:18 by shkhadka          #+#    #+#             */
+/*   Updated: 2026/05/21 17:33:03 by shkhadka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	a;
+	size_t			a;
+	unsigned char	*ptr;
 
-	if (!s || !f)
-		return ;
+	ptr = (unsigned char *)s;
 	a = 0;
-	while (s[a])
+	while (a < n)
 	{
-		f(a, &s[a]);
+		if (ptr[a] == (unsigned char)c)
+			return ((void *)&ptr[a]);
 		a++;
 	}
+	return (NULL);
 }
 
-// void ft_toupper(unsigned int n, char *c)
-// {
-//     (void)n;
-//     if (*c >= 'a' && *c <= 'z')
-//         *c -= 32;
-// }
 // int main()
 // {
-//     char s[] = "shiva";
-//     ft_striteri(s, ft_toupper);
-//     printf("%s", s);
+//     char s[] = "SHIVAKHADLA";
+//     char *res;
+//     char s1[] = "SHIVAKHADLA";
+//     char *nres;
+
+//     res = ft_memchr(s, 'A', 8);
+//     printf("%ld\n", res - s);
+//     nres = memchr(s1, 'A', 8);
+//     printf("%ld", nres - s1);
 // }
